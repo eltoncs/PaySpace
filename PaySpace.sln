@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaySpace.MVC", "Presentation\PaySpace.MVC\PaySpace.MVC.csproj", "{1F11CCA7-D8D5-4970-8268-8C789682D910}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{8D3C6C52-7BAD-49F8-9E54-26EDF368AC88}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{B8070EA9-2149-4B82-B1BC-8296367F8614}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{93C1299C-5BDD-4B30-BD58-E33A13AFE2F6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Services", "2 - Services", "{6F11911C-7B10-4CF7-852D-85D3858635E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{D39C9376-DE98-486C-8D39-880FAD5859B3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaySpace.Infra.Data", "PaySpace.Infra.Data\PaySpace.Infra.Data.csproj", "{D880839E-74DA-480F-B7AA-D54C2978E036}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaySpace.Domain", "PaySpace.Domain\PaySpace.Domain.csproj", "{DF56A440-9171-4BAA-85CA-0678931F6F1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaySpaceApplication", "PaySpaceApplication\PaySpaceApplication.csproj", "{6084C8B8-9CCB-40E3-B55C-F32EAC124148}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F11CCA7-D8D5-4970-8268-8C789682D910}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F11CCA7-D8D5-4970-8268-8C789682D910}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F11CCA7-D8D5-4970-8268-8C789682D910}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F11CCA7-D8D5-4970-8268-8C789682D910}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D880839E-74DA-480F-B7AA-D54C2978E036}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D880839E-74DA-480F-B7AA-D54C2978E036}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D880839E-74DA-480F-B7AA-D54C2978E036}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D880839E-74DA-480F-B7AA-D54C2978E036}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF56A440-9171-4BAA-85CA-0678931F6F1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF56A440-9171-4BAA-85CA-0678931F6F1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF56A440-9171-4BAA-85CA-0678931F6F1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF56A440-9171-4BAA-85CA-0678931F6F1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6084C8B8-9CCB-40E3-B55C-F32EAC124148}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6084C8B8-9CCB-40E3-B55C-F32EAC124148}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6084C8B8-9CCB-40E3-B55C-F32EAC124148}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6084C8B8-9CCB-40E3-B55C-F32EAC124148}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1F11CCA7-D8D5-4970-8268-8C789682D910} = {D39C9376-DE98-486C-8D39-880FAD5859B3}
+		{B8070EA9-2149-4B82-B1BC-8296367F8614} = {8D3C6C52-7BAD-49F8-9E54-26EDF368AC88}
+		{D880839E-74DA-480F-B7AA-D54C2978E036} = {B8070EA9-2149-4B82-B1BC-8296367F8614}
+		{DF56A440-9171-4BAA-85CA-0678931F6F1C} = {93C1299C-5BDD-4B30-BD58-E33A13AFE2F6}
+		{6084C8B8-9CCB-40E3-B55C-F32EAC124148} = {6F11911C-7B10-4CF7-852D-85D3858635E1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CD51BE6D-4F93-4ABD-B0AB-B47D4BB0CBFF}
+	EndGlobalSection
+EndGlobal
