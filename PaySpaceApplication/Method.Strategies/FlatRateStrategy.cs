@@ -20,7 +20,7 @@ namespace PaySpaceApplication.Method.Strategies
 
         public async Task<Calc> Calc(decimal income, string postalCode)
         {
-            var flatRate = configuration.GetValue<CalcMethods>(nameof(CalcMethods)).FlatRate;
+            var flatRate = this.configuration.GetSection(nameof(CalcMethods)).Get<CalcMethods>().FlatRate;
             decimal result = income * flatRate.Tax;
 
             var calc = new Calc()

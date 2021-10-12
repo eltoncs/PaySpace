@@ -20,8 +20,8 @@ namespace PaySpaceApplication.Method.Strategies
 
         public async Task<Calc> Calc(decimal income, string postalCode)
         {
-            var flatValue = configuration.GetValue<CalcMethods>(nameof(CalcMethods)).FlatValue;
-            decimal result = income <= flatValue.MaxValue ? flatValue.YearValue : flatValue.Tax * income;
+            var flatValue = this.configuration.GetSection(nameof(CalcMethods)).Get<CalcMethods>().FlatValue;
+            decimal result = income >= flatValue.MaxValue ? flatValue.YearValue : flatValue.Tax * income;
 
             var calc = new Calc()
             {

@@ -4,11 +4,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PaySpace.Api.Extensions;
 using PaySpace.Domain.Model;
 using PaySpace.Domain.Repository;
 using PaySpace.Infra.Data;
 using PaySpace.Infra.Data.Repository;
 using PaySpaceApplication.Method.Strategies;
+using PaySpaceApplication.Services;
+
 
 namespace PaySpace.Api
 {
@@ -25,6 +28,8 @@ namespace PaySpace.Api
         {
             services.AddControllers();
 
+            services.AddSwaggerGen();
+
             services.AddDbContext<PaySpaceDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -33,11 +38,19 @@ namespace PaySpace.Api
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, PaySpaceDbContext dataContext)
         {
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "PaySpace Tax Calculator Api V1");
+                }
+            );
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
+            app.ConfigureCustomExceptionMiddleware();
             dataContext.Database.Migrate();
 
             app.UseHttpsRedirection();
@@ -62,6 +75,9 @@ namespace PaySpace.Api
             services.AddScoped<IFlatRateStrategy, FlatRateStrategy>();
             services.AddScoped<IFlatValueStrategy, FlatValueStrategy>();
             services.AddScoped<IProgressiveStrategy, ProgressiveStrategy>();
+
+            services.AddScoped<ICalcServices, CalcServices>();
+            
         }
     }
 }

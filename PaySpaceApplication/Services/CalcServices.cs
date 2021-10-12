@@ -1,13 +1,14 @@
 ﻿using Microsoft.Extensions.Configuration;
 using PaySpace.Domain.Model;
 using PaySpace.Domain.Repository;
+using PaySpaceApplication.Exceptions;
 using PaySpaceApplication.Method.Strategies;
 using System;
 using System.Threading.Tasks;
 
 namespace PaySpaceApplication.Services
 {
-    public class CalcService : ICalcServices
+    public class CalcServices : ICalcServices
     {
         public readonly IProgressiveStrategy progressiveStrategy;
         public readonly IFlatRateStrategy flatRateStrategy;
@@ -15,7 +16,7 @@ namespace PaySpaceApplication.Services
 
         public readonly ICalcMethodRepository calcMethodRepository;
 
-        public CalcService(
+        public CalcServices(
             IProgressiveStrategy progressiveStrategy,
             IFlatRateStrategy flatRateStrategy,
             IFlatValueStrategy flatValueStrategy,
@@ -29,7 +30,7 @@ namespace PaySpaceApplication.Services
 
         public async Task<Calc> Calc(string postalCode, decimal income)
         {
-            ICalcMethod calcStrategy = this.GetCalcStrategy(postalCode);
+            ICalcMethod calcStrategy = this.GetCalcStrategy(postalCode.ToUpper());
 
             return await calcStrategy.Calc(income, postalCode);
         }
@@ -40,7 +41,7 @@ namespace PaySpaceApplication.Services
 
             if (calcMethod == null)
             {
-                throw new ApplicationException("Postal code not covered");
+                throw new CustomNotFoundException("Postal code not covered");
             }
 
             switch (calcMethod.Method)
