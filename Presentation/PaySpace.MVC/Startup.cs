@@ -60,15 +60,17 @@ namespace PaySpace.MVC
 
         private void InjectBusinessDependecies(IServiceCollection services)
         {
+            
             services.AddScoped<IRepository<Calc>, CalcRepository>();
+            services.AddScoped<Repository<Calc, PaySpaceDbContext>, CalcRepository>();
             services.AddScoped<Repository<CalcMethod, PaySpaceDbContext>, CalcMethodRepository>();
             services.AddScoped<ICalcMethodRepository, CalcMethodRepository>();
             services.AddScoped<IProgressiveTableRepository, ProgressiveTableRepository>();
             services.AddScoped<Repository<ProgressiveTable, PaySpaceDbContext>, ProgressiveTableRepository>();
 
-            services.AddSingleton<IFlatRateStrategy, FlatRateStrategy>();
-            services.AddSingleton<IFlatValueStrategy, FlatValueStrategy>();
-            services.AddSingleton<IProgressiveStrategy, ProgressiveStrategy>();
+            services.AddScoped<IFlatRateStrategy, FlatRateStrategy>();
+            services.AddScoped<IFlatValueStrategy, FlatValueStrategy>();
+            services.AddScoped<IProgressiveStrategy, ProgressiveStrategy>();
         }
     }
 }

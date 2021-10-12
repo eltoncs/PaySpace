@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/PaySpace.Api/Properties/launchSettings.json
+/PaySpace.Api/appsettings.Development.json
+/PaySpace.Api/appsettings.json
