@@ -1,14 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using PaySpace.Domain.Model;
-using PaySpace.Domain.Repository;
 using PaySpace.Infra.Data;
-using PaySpace.Infra.Data.Repository;
-using PaySpaceApplication.Method.Strategies;
 
 namespace PaySpace.MVC
 {
@@ -24,14 +19,9 @@ namespace PaySpace.MVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
-            services.AddDbContext<PaySpaceDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            this.InjectBusinessDependecies(services);
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, PaySpaceDbContext dataContext)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -42,8 +32,6 @@ namespace PaySpace.MVC
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-
-            dataContext.Database.Migrate();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -56,21 +44,6 @@ namespace PaySpace.MVC
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-        }
-
-        private void InjectBusinessDependecies(IServiceCollection services)
-        {
-            
-            services.AddScoped<IRepository<Calc>, CalcRepository>();
-            services.AddScoped<Repository<Calc, PaySpaceDbContext>, CalcRepository>();
-            services.AddScoped<Repository<CalcMethod, PaySpaceDbContext>, CalcMethodRepository>();
-            services.AddScoped<ICalcMethodRepository, CalcMethodRepository>();
-            services.AddScoped<IProgressiveTableRepository, ProgressiveTableRepository>();
-            services.AddScoped<Repository<ProgressiveTable, PaySpaceDbContext>, ProgressiveTableRepository>();
-
-            services.AddScoped<IFlatRateStrategy, FlatRateStrategy>();
-            services.AddScoped<IFlatValueStrategy, FlatValueStrategy>();
-            services.AddScoped<IProgressiveStrategy, ProgressiveStrategy>();
         }
     }
 }

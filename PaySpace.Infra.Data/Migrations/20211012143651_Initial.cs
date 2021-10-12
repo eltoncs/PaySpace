@@ -62,10 +62,10 @@ namespace PaySpace.Infra.Data.Migrations
                 columns: new[] { "Id", "Method", "PostalCode" },
                 values: new object[,]
                 {
-                    { new Guid("1f3fa8e4-534a-47e2-8a4e-4c3ca769ff9d"), "Progressive", "7441" },
-                    { new Guid("dc40403f-7a9c-440d-8e12-0b265cf8c17a"), "FlatValue", "A100" },
-                    { new Guid("95f1546d-23a4-4ac5-8ea6-61b3211bc045"), "FlatRate", "7000" },
-                    { new Guid("47f53d44-adb8-4fa3-a206-1ee6f960d275"), "Progressive", "1000" }
+                    { new Guid("ddc46bcc-b484-4356-a1e0-69163fc8c4f9"), "Progressive", "7441" },
+                    { new Guid("e3561787-3d2c-41fe-9be2-31a1a9ac4761"), "FlatValue", "A100" },
+                    { new Guid("21a56700-2b33-45a2-b2b0-95d9ad45ff80"), "FlatRate", "7000" },
+                    { new Guid("6d3000b7-eac4-4505-be32-1c5f4b6ff899"), "Progressive", "1000" }
                 });
 
             migrationBuilder.InsertData(
@@ -73,12 +73,12 @@ namespace PaySpace.Infra.Data.Migrations
                 columns: new[] { "Id", "From", "Rate", "To" },
                 values: new object[,]
                 {
-                    { new Guid("0eded851-88c0-4711-86b4-ed3c09d91d24"), 0m, 0.1m, 8350m },
-                    { new Guid("1b2d6b8b-acba-4cbd-99ae-e7b0711d20fe"), 8351m, 0.15m, 33950m },
-                    { new Guid("0b78b89b-7ce1-4740-bc36-a6a1c137df08"), 33951m, 0.25m, 82250m },
-                    { new Guid("42b8ddcb-c2b1-4f21-9ff7-a1677cab1d59"), 82251m, 0.28m, 171550m },
-                    { new Guid("c1e94353-a5eb-405f-9212-634686fddc82"), 171551m, 0.33m, 372950m },
-                    { new Guid("7efb5345-fa3f-4dad-b248-164294a90a81"), 372951m, 0.35m, null }
+                    { new Guid("cb813e0f-5e3c-4223-8afe-4805bccd0f61"), 0m, 0.1m, 8350m },
+                    { new Guid("7fc9e398-c867-41f2-adf0-628bf7960a07"), 8351m, 0.15m, 33950m },
+                    { new Guid("6a0d5a8a-1d03-4972-8e7f-a6e764a5f89f"), 33951m, 0.25m, 82250m },
+                    { new Guid("a066fb2b-daff-4b24-a0a4-4b987089bedf"), 82251m, 0.28m, 171550m },
+                    { new Guid("d9b1c7b9-c737-4888-9fc8-2a602bd6985e"), 171551m, 0.33m, 372950m },
+                    { new Guid("fd84aad0-83c6-4241-a06e-9c15f42ff8ed"), 372951m, 0.35m, null }
                 });
 
             migrationBuilder.CreateIndex(
