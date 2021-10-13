@@ -25,4 +25,4 @@ Patterns:
 Unit Tests
 - Only business services are tested, but not with full coverage due to the lack of time.
 - No edge cases covered due to the same reason.
-- I did not started the project with TDD aproach due to the short dead-line
+- I did not start the project with TDD aproach due to the short dead-line
