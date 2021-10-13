@@ -8,9 +8,13 @@ Go to the Web Application "PaySpace Tax Tax Caculation).
 Provide postal code and anual income. Click calc.
 
 The solution is divided into two major groups:
+
 1 - Presentation (Contains Wep App and Api Service)
+
 2 - Services (Contais application services and related unit tests)
+
 3 - Domain (Model and repository interfaces)
+
 4 - Infra (With only the data access layer)
 
 Patterns:
