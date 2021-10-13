@@ -4,5 +4,35 @@
 
 <div class="text-center">
     <h1 class="display-4">PaySpace</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h2 class="display-6">Tax Calculator</h2>
+    <hr />
+
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id=""><b>Enter Postal Code and Anual Income</b></span>
+        </div>
+
+        <input type="text" class="form-control" placeholder="Postal code" id="postal-code">
+        <input type="text" class="form-control" placeholder="Income" id="anual-income">
+
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" id="btn-calc">Calc</button>
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<div class="col-xs-1" align="center">
+    <div class="card" style="width: 30rem;">
+      <div class="card-header">
+        Results
+      </div>
+      <ul class="list-group" align="left">
+        <li class="list-group-item">Date/Time:&nbsp;<b id="label-date-time"></b></li>
+        <li class="list-group-item">Postal Code:&nbsp;<b id="label-postal-code"></b></li>
+        <li class="list-group-item">Anual income:&nbsp;<b id="label-income"></b></li>
+        <li class="list-group-item">Tax value:&nbsp;<b id="label-tax-value"></b></li>
+      </ul>
+    </div>
 </div>

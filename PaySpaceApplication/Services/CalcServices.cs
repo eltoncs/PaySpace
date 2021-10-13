@@ -1,9 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
-using PaySpace.Domain.Model;
+﻿using PaySpace.Domain.Model;
 using PaySpace.Domain.Repository;
 using PaySpaceApplication.Exceptions;
 using PaySpaceApplication.Method.Strategies;
-using System;
 using System.Threading.Tasks;
 
 namespace PaySpaceApplication.Services
@@ -53,7 +51,7 @@ namespace PaySpaceApplication.Services
                 case "FlatRate":
                     return this.flatRateStrategy;
                 default:
-                    throw new ApplicationException("Calc method not covered by the application");
+                    throw new CustomNotFoundException("Calc method not covered by the application");
             }
         }
     }

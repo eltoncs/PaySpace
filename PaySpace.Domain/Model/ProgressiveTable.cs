@@ -17,7 +17,7 @@ namespace PaySpace.Domain.Model
         public decimal? To { get; set; }
 
         [Required]
-        [Column(TypeName = "decimal(18,2)")]
+        [Column(TypeName = "decimal(18,3)")]
         public decimal Rate { get; set; }
     }
 }

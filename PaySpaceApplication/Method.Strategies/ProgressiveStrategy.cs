@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using PaySpace.Domain.Model;
 using PaySpace.Domain.Repository;
+using PaySpaceApplication.Exceptions;
 using System;
 using System.Threading.Tasks;
 
@@ -28,7 +29,7 @@ namespace PaySpaceApplication.Method.Strategies
 
             if (progressiveTax == null)
             {
-                throw new ApplicationException("Tax range not found");
+                throw new CustomNotFoundException("Tax range not found");
             }
 
             decimal result = progressiveTax.Rate * income;

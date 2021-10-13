@@ -13,7 +13,7 @@ namespace PaySpace.Infra.Data.Repository
         public ProgressiveTable Get(decimal income)
         {
             return this.context.Set<ProgressiveTable>().Where(
-                p => p.From >= income && p.To <= income).FirstOrDefault();
+                p => income >= p.From && income <= p.To).FirstOrDefault();
         }
     }
 }

@@ -33,6 +33,10 @@ namespace PaySpace.Api.Middleware
             {
                 context.Response.StatusCode = (int)HttpStatusCode.NotFound;
             }
+            else if (exception is CustomBadRequestException)
+            {
+                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+            }
             else
             {
                 context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;

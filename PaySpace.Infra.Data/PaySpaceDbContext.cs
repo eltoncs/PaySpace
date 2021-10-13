@@ -152,7 +152,7 @@ namespace PaySpace.Infra.Data
                 {
                     Id = Guid.NewGuid(),
                     From = 372951M,
-                    To = null,
+                    To = 99999999999999M,
                     Rate = 0.35M
                 }
             );

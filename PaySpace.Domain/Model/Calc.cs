@@ -13,7 +13,6 @@ namespace PaySpace.Domain.Model
         public DateTime Date { get; set; }
 
         [Required]
-        [ForeignKey(nameof(CalcMethod))]
         public string PostalCode { get; set; }
 
         [Required]

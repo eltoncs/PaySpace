@@ -17,6 +17,8 @@ namespace PaySpace.Api
 {
     public class Startup
     {
+        readonly string corsAllowAllOrigins = "AllowAllOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -26,6 +28,17 @@ namespace PaySpace.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(corsAllowAllOrigins,
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin();
+                        builder.AllowAnyHeader();
+                        builder.AllowAnyMethod();
+                    });
+            });
+
             services.AddControllers();
 
             services.AddSwaggerGen();
@@ -55,7 +68,8 @@ namespace PaySpace.Api
 
             app.UseHttpsRedirection();
             app.UseRouting();
-            app.UseAuthorization();
+            app.UseCors(corsAllowAllOrigins);
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

@@ -10,7 +10,7 @@ using PaySpace.Infra.Data;
 namespace PaySpace.Infra.Data.Migrations
 {
     [DbContext(typeof(PaySpaceDbContext))]
-    [Migration("20211012143651_Initial")]
+    [Migration("20211012204917_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -75,25 +75,25 @@ namespace PaySpace.Infra.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("ddc46bcc-b484-4356-a1e0-69163fc8c4f9"),
+                            Id = new Guid("0a20c85c-0cc0-4d0e-89ec-d55ba1bd58e3"),
                             Method = "Progressive",
                             PostalCode = "7441"
                         },
                         new
                         {
-                            Id = new Guid("e3561787-3d2c-41fe-9be2-31a1a9ac4761"),
+                            Id = new Guid("79e252a9-8d27-4fc7-85b6-287e02392935"),
                             Method = "FlatValue",
                             PostalCode = "A100"
                         },
                         new
                         {
-                            Id = new Guid("21a56700-2b33-45a2-b2b0-95d9ad45ff80"),
+                            Id = new Guid("52b9e2b5-a1a5-423b-b9bd-7e68b96de035"),
                             Method = "FlatRate",
                             PostalCode = "7000"
                         },
                         new
                         {
-                            Id = new Guid("6d3000b7-eac4-4505-be32-1c5f4b6ff899"),
+                            Id = new Guid("dd0c3a96-f8e8-458c-aee4-3721e97147a3"),
                             Method = "Progressive",
                             PostalCode = "1000"
                         });
@@ -109,7 +109,7 @@ namespace PaySpace.Infra.Data.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("Rate")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18,3)");
 
                     b.Property<decimal?>("To")
                         .HasColumnType("decimal(18,2)");
@@ -121,44 +121,45 @@ namespace PaySpace.Infra.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("cb813e0f-5e3c-4223-8afe-4805bccd0f61"),
+                            Id = new Guid("8933dce0-5a23-48ef-afe1-7a90038930dd"),
                             From = 0m,
                             Rate = 0.1m,
                             To = 8350m
                         },
                         new
                         {
-                            Id = new Guid("7fc9e398-c867-41f2-adf0-628bf7960a07"),
+                            Id = new Guid("09163b3d-300c-4982-8f07-080964b137be"),
                             From = 8351m,
                             Rate = 0.15m,
                             To = 33950m
                         },
                         new
                         {
-                            Id = new Guid("6a0d5a8a-1d03-4972-8e7f-a6e764a5f89f"),
+                            Id = new Guid("e31b887f-74fb-4b3a-a560-9ea9ff8f4680"),
                             From = 33951m,
                             Rate = 0.25m,
                             To = 82250m
                         },
                         new
                         {
-                            Id = new Guid("a066fb2b-daff-4b24-a0a4-4b987089bedf"),
+                            Id = new Guid("478c8a36-635c-4866-aa79-24f67de02594"),
                             From = 82251m,
                             Rate = 0.28m,
                             To = 171550m
                         },
                         new
                         {
-                            Id = new Guid("d9b1c7b9-c737-4888-9fc8-2a602bd6985e"),
+                            Id = new Guid("0da43645-2560-48d2-90f4-d45813727b74"),
                             From = 171551m,
                             Rate = 0.33m,
                             To = 372950m
                         },
                         new
                         {
-                            Id = new Guid("fd84aad0-83c6-4241-a06e-9c15f42ff8ed"),
+                            Id = new Guid("2db15f47-25cd-4ea6-82f8-152e3477afad"),
                             From = 372951m,
-                            Rate = 0.35m
+                            Rate = 0.35m,
+                            To = 99999999999999m
                         });
                 });
 

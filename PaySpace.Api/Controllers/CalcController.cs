@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PaySpace.Domain.Model;
+using PaySpace.Api.Dto;
 using PaySpaceApplication.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace PaySpace.Api.Controllers
@@ -19,19 +16,25 @@ namespace PaySpace.Api.Controllers
             this.calcServices = calcServices;
         }
 
-        [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Calc))]
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetCalc(string postalCode, decimal income)
+        public async Task<IActionResult> PostCalc([FromBody] CalcRequest request)
         {
-            var calcDto = await this.calcServices.Calc(postalCode, income);
+            if (request == null)
+            {
+                return BadRequest();
+            }
+
+            var calcDto = await this.calcServices.Calc(request.PostalCode.ToUpper(), request.Income);
 
             if (calcDto == null)
             {
                 return NotFound();
-            }                
+            }
 
-            return Ok(calcDto);
+            return Created(nameof(PostCalc), calcDto);
         }
     }
 }
