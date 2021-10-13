@@ -3,6 +3,7 @@ Test Project for PaySpace Hiring Process
 
 In order to run the application we need to have PaySpace.Api and PaySpace.MVC as startup projects.
 Once started, a migragion will take place and the database will be created.
+
 Go to the Web Application "PaySpace Tax Tax Caculation).
 Provide postal code and anual income. Click calc.
 
