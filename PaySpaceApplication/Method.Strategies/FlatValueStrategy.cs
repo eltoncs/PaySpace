@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using PaySpace.Domain.Model;
+﻿using PaySpace.Domain.Model;
 using PaySpace.Domain.Repository;
 using PaySpaceApplication.Models;
 using System;
@@ -9,18 +8,18 @@ namespace PaySpaceApplication.Method.Strategies
 {
     public class FlatValueStrategy : IFlatValueStrategy
     {
-        public readonly IConfiguration configuration;
+        public readonly ICalcMethods calcMethods;
         public readonly IRepository<Calc> calcRepository;
 
-        public FlatValueStrategy(IConfiguration configuration, IRepository<Calc> calcRepository)
+        public FlatValueStrategy(ICalcMethods calcMethods, IRepository<Calc> calcRepository)
         {
-            this.configuration = configuration;
+            this.calcMethods = calcMethods;
             this.calcRepository = calcRepository;
         }
 
-        public async Task<Calc> Calc(decimal income, string postalCode)
+        public async Task<Calc> Calc(decimal income, string postalCode, bool save = true)
         {
-            var flatValue = this.configuration.GetSection(nameof(CalcMethods)).Get<CalcMethods>().FlatValue;
+            var flatValue = calcMethods.FlatValue;
             decimal result = income >= flatValue.MaxValue ? flatValue.YearValue : flatValue.Tax * income;
 
             var calc = new Calc()
@@ -31,6 +30,11 @@ namespace PaySpaceApplication.Method.Strategies
                 PostalCode = postalCode,
                 TaxValue = result
             };
+
+            if (!save)
+            {
+                return calc;
+            }
 
             return await calcRepository.Add(calc);
         }

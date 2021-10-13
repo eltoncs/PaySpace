@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaySpace.Domain", "PaySpace
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaySpaceApplication", "PaySpaceApplication\PaySpaceApplication.csproj", "{6084C8B8-9CCB-40E3-B55C-F32EAC124148}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaySpace.Api", "PaySpace.Api\PaySpace.Api.csproj", "{C79FC678-F767-431B-B26E-F25DA4C24D86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaySpace.Api", "PaySpace.Api\PaySpace.Api.csproj", "{C79FC678-F767-431B-B26E-F25DA4C24D86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaySpace.Application.Test", "PaySpace.Application.Test\PaySpace.Application.Test.csproj", "{6E3EEDA1-8BC9-49CD-B933-EC3894BDB540}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{C79FC678-F767-431B-B26E-F25DA4C24D86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C79FC678-F767-431B-B26E-F25DA4C24D86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C79FC678-F767-431B-B26E-F25DA4C24D86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E3EEDA1-8BC9-49CD-B933-EC3894BDB540}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E3EEDA1-8BC9-49CD-B933-EC3894BDB540}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E3EEDA1-8BC9-49CD-B933-EC3894BDB540}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E3EEDA1-8BC9-49CD-B933-EC3894BDB540}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{DF56A440-9171-4BAA-85CA-0678931F6F1C} = {93C1299C-5BDD-4B30-BD58-E33A13AFE2F6}
 		{6084C8B8-9CCB-40E3-B55C-F32EAC124148} = {6F11911C-7B10-4CF7-852D-85D3858635E1}
 		{C79FC678-F767-431B-B26E-F25DA4C24D86} = {D39C9376-DE98-486C-8D39-880FAD5859B3}
+		{6E3EEDA1-8BC9-49CD-B933-EC3894BDB540} = {6F11911C-7B10-4CF7-852D-85D3858635E1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CD51BE6D-4F93-4ABD-B0AB-B47D4BB0CBFF}

@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using PaySpace.Domain.Model;
+﻿using PaySpace.Domain.Model;
 using PaySpace.Domain.Repository;
 using PaySpaceApplication.Exceptions;
 using System;
@@ -9,21 +8,18 @@ namespace PaySpaceApplication.Method.Strategies
 {
     public class ProgressiveStrategy : IProgressiveStrategy
     {
-        public readonly IConfiguration configuration;
         public readonly IRepository<Calc> calcRepository;
         public readonly IProgressiveTableRepository progressiveTableRepository;
 
         public ProgressiveStrategy(
-            IConfiguration configuration, 
             IRepository<Calc> calcRepository,
             IProgressiveTableRepository progressiveTableRepository)
         {
-            this.configuration = configuration;
             this.calcRepository = calcRepository;
             this.progressiveTableRepository = progressiveTableRepository;
         }
 
-        public async Task<Calc> Calc(decimal income, string postalCode)
+        public async Task<Calc> Calc(decimal income, string postalCode, bool save = true)
         {
             var progressiveTax = this.progressiveTableRepository.Get(income);
 
@@ -42,6 +38,11 @@ namespace PaySpaceApplication.Method.Strategies
                 PostalCode = postalCode,
                 TaxValue = result
             };
+
+            if (!save)
+            {
+                return calc;
+            }
 
             return await this.calcRepository.Add(calc);
         }

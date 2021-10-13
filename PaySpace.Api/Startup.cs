@@ -10,6 +10,7 @@ using PaySpace.Domain.Repository;
 using PaySpace.Infra.Data;
 using PaySpace.Infra.Data.Repository;
 using PaySpaceApplication.Method.Strategies;
+using PaySpaceApplication.Models;
 using PaySpaceApplication.Services;
 
 
@@ -86,6 +87,7 @@ namespace PaySpace.Api
             services.AddScoped<IProgressiveTableRepository, ProgressiveTableRepository>();
             services.AddScoped<Repository<ProgressiveTable, PaySpaceDbContext>, ProgressiveTableRepository>();
 
+            services.AddScoped<ICalcMethods, CalcMethods>();
             services.AddScoped<IFlatRateStrategy, FlatRateStrategy>();
             services.AddScoped<IFlatValueStrategy, FlatValueStrategy>();
             services.AddScoped<IProgressiveStrategy, ProgressiveStrategy>();
