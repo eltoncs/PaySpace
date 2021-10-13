@@ -7,7 +7,7 @@ Once started, a migragion will take place and the database will be created.
 Go to the Web Application "PaySpace Tax Tax Caculation).
 Provide postal code and anual income. Click calc.
 
-The solution is divided into two major groups:
+The solution is divided into four major groups:
 
 1 - Presentation (Contains Wep App and Api Service)
 
