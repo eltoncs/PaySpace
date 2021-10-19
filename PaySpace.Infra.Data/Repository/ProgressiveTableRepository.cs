@@ -1,5 +1,6 @@
 ﻿using PaySpace.Domain.Model;
 using PaySpace.Domain.Repository;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace PaySpace.Infra.Data.Repository
@@ -10,10 +11,9 @@ namespace PaySpace.Infra.Data.Repository
         {
         }
 
-        public ProgressiveTable Get(decimal income)
+        List<ProgressiveTable> IProgressiveTableRepository.GetAll()
         {
-            return this.context.Set<ProgressiveTable>().Where(
-                p => income >= p.From && income <= p.To).FirstOrDefault();
+            return this.context.Set<ProgressiveTable>().OrderBy(x => x.From).ToList();
         }
     }
 }

@@ -21,14 +21,34 @@ namespace PaySpaceApplication.Method.Strategies
 
         public async Task<Calc> Calc(decimal income, string postalCode, bool save = true)
         {
-            var progressiveTax = this.progressiveTableRepository.Get(income);
+            var progressiveTable = this.progressiveTableRepository.GetAll();
 
-            if (progressiveTax == null)
+            if (progressiveTable == null || progressiveTable.Count == 0)
             {
-                throw new CustomNotFoundException("Tax range not found");
+                throw new CustomNotFoundException("Tax data for progressive calc not found");
             }
 
-            decimal result = progressiveTax.Rate * income;
+            decimal remainingIncome = income;
+            decimal totalTax = 0;
+
+            foreach(var taxItem in progressiveTable)
+            {
+                if (remainingIncome >= taxItem.To)
+                {
+                    totalTax += taxItem.Rate * taxItem.To;                    
+                }
+                else
+                {
+                    totalTax += taxItem.Rate * remainingIncome;
+                }
+
+                remainingIncome -= taxItem.To;
+
+                if (remainingIncome <= 0)
+                {
+                    break;
+                }
+            }
 
             var calc = new Calc()
             {
@@ -36,7 +56,7 @@ namespace PaySpaceApplication.Method.Strategies
                 Date = DateTime.UtcNow,
                 Income = income,
                 PostalCode = postalCode,
-                TaxValue = result
+                TaxValue = totalTax
             };
 
             if (!save)
